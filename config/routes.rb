@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :packages do
-    resources :comments
+    resources :reviews
   end
 end

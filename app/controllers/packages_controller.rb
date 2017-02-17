@@ -24,6 +24,7 @@ class PackagesController < ApplicationController
 
   def show
     @package = Package.find(params[:id])
+    @review = @package.reviews.new
   end
 
   def edit

@@ -1,11 +1,28 @@
-<h1><%= @package.name %></h1>
-<p><%= @package.description %></p>
-<p>$<%= @package.price %></p>
-<%= image_tag @package.image(:medium) %>
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= @package.name %></h1>
+    <p><%= @package.description %></p>
+    <p>$<%= @package.price %></p>
+    <%= image_tag @package.image(:medium) %>
 
-<% if current_user.admin %>
-  <hr>
-  <%= button_to 'Edit This Package', edit_package_path(@package), :class => 'btn btn-warning', :method => :get %>
-  <br>
-  <%= button_to 'Delete This Package', package_path(@package),:data => {:confirm => "You sure?", :method => "delete"}, :class => 'btn btn-danger' %>
-<% end %>
+    <% if current_user.admin %>
+      <hr>
+      <%= button_to 'Edit This Package', edit_package_path(@package), :class => 'btn btn-warning', :method => :get %>
+      <br>
+      <%= button_to 'Delete This Package', package_path(@package),:data => {:confirm => "You sure?", :method => "delete"}, :class => 'btn btn-danger' %>
+    <% end %>
+  </div>
+  <div class="col-sm-6">
+    <h3>Reviews</h2>
+    <% @package.reviews.each do |review| %>
+      <h5><%= review.user.email if review.user %></h5>
+      <p><%= review.content %></p>
+    <% end %>
+    <h5>Leave a Review</h5>
+    <%= form_for [@package, @review] do |f| %>
+      <%= f.label :content  %>
+      <%= f.text_field :content %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
