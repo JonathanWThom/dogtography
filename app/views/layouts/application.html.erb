@@ -16,6 +16,7 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+            <li><%= link_to 'Photo Packages', packages_path %></li>
             <% if !user_signed_in? %>
               <li><%= link_to 'Sign In', new_user_session_path %></li>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>

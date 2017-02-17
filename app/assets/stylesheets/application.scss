@@ -1,2 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.center {
+  text-align: center;
+}
+
+.padded-image {
+  padding: 10px;
+}
+
+.form-image {
+  width: 100%;
+}

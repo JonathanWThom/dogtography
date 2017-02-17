@@ -5,11 +5,11 @@
     <p>$<%= @package.price %></p>
     <%= image_tag @package.image(:medium) %>
 
-    <% if current_user.admin %>
+    <% if current_user && current_user.admin %>
       <hr>
       <%= button_to 'Edit This Package', edit_package_path(@package), :class => 'btn btn-warning', :method => :get %>
       <br>
-      <%= button_to 'Delete This Package', package_path(@package),:data => {:confirm => "Are you sure you'd like to delete this package?", :method => "delete"}, :class => 'btn btn-danger' %>
+      <%= button_to 'Delete This Package', package_path(@package),:data => {:confirm => "Are you sure you'd like to delete this package?", :method => "delete"}, :class => 'btn btn-danger', :method => :delete %>
     <% end %>
   </div>
   <div class="col-sm-6">
@@ -17,15 +17,20 @@
     <% @package.reviews.each do |review| %>
       <h5><%= review.user.email if review.user %></h5>
       <p><%= review.content %></p>
-      <% if current_user.admin && review.id %>
+      <% if current_user && current_user.admin && review.id %>
+        <!-- Could not manage to get this to work with a normal rails route helper-->
         <p><%= link_to 'Delete Review', "/packages/#{@package.id}/reviews/#{review.id}", :data => {:confirm => "Are you sure you'd like to delete this review?", :method => "delete"} %><p>
       <% end %>
     <% end %>
-    <h5>Leave a Review</h5>
-    <%= form_for [@package, @review] do |f| %>
-      <%= f.label :content  %>
-      <%= f.text_field :content %>
-      <%= f.submit %>
+    <% if current_user %>
+      <h5>Leave a Review</h5>
+      <%= form_for [@package, @review] do |f| %>
+        <%= f.label :content  %>
+        <%= f.text_field :content %>
+        <%= f.submit %>
+      <% end %>
+    <% else %>
+      <h5><%= link_to 'Sign In to Leave a Review', new_user_session_path %></h5>
     <% end %>
   </div>
 </div>

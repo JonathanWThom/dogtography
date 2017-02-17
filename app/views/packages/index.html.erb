@@ -1,8 +1,10 @@
-<h1>Friends are Forever</h1>
-<h3>Find the Right Package for You and Your Pet</h3>
+<h1 class="center">Friends are Forever</h1>
+<h3 class="center">Find the Right Package for You and Your Pet</h3>
 
-<% @packages.each do |package| %>
-  <h5><%= link_to package.name, package_path(package) %></h5>
-  <%= image_tag package.image(:medium) %>
-  <hr>
-<% end %>
+<div class="center">
+  <% @packages.each do |package| %>
+    <h5><%= link_to package.name, package_path(package) %></h5>
+    <%= image_tag package.image(:medium) %>
+    <hr>
+  <% end %>
+</div>

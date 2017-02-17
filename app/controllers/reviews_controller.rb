@@ -26,7 +26,6 @@ class ReviewsController < ApplicationController
     @package = Package.find(params[:package_id])
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to package_path(@package)
   end
 
 private
