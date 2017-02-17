@@ -9,7 +9,7 @@
       <hr>
       <%= button_to 'Edit This Package', edit_package_path(@package), :class => 'btn btn-warning', :method => :get %>
       <br>
-      <%= button_to 'Delete This Package', package_path(@package),:data => {:confirm => "You sure?", :method => "delete"}, :class => 'btn btn-danger' %>
+      <%= button_to 'Delete This Package', package_path(@package),:data => {:confirm => "Are you sure you'd like to delete this package?", :method => "delete"}, :class => 'btn btn-danger' %>
     <% end %>
   </div>
   <div class="col-sm-6">
@@ -17,6 +17,9 @@
     <% @package.reviews.each do |review| %>
       <h5><%= review.user.email if review.user %></h5>
       <p><%= review.content %></p>
+      <% if review && current_user.admin %>
+        <%= link_to 'delete', "/packages/#{@package.id}/reviews/#{review.id}", :data => {:confirm => "Are you sure you'd like to delete this review?", :method => "delete"} %>
+      <% end %>
     <% end %>
     <h5>Leave a Review</h5>
     <%= form_for [@package, @review] do |f| %>
