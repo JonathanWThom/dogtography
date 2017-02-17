@@ -5,11 +5,6 @@ class ReviewsController < ApplicationController
   end
 
 
-  def new
-    @package = Package.find(params[:id])
-    @review = @package.reviews.new
-  end
-
   def create
     @package = Package.find(params[:package_id])
     @review = @package.reviews.new(content: review_params[:content], user_id: current_user.id)
@@ -26,6 +21,7 @@ class ReviewsController < ApplicationController
     @package = Package.find(params[:package_id])
     @review = Review.find(params[:id])
     @review.destroy
+    redirect_to package_path(@package)
   end
 
 private
