@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :packages, through: :reviews
 
-  after_create :send_welcome_message
+  if Rails.env.development?
+    after_create :send_welcome_message
+  end
 
   def send_welcome_message
     ContactMailer.welcome_email(self).deliver_now
