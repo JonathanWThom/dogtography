@@ -583,6 +583,9 @@
         null,
         1
       ],
+      "/Users/JonathanThom/Desktop/dogtography/config/initializers/paperclip.rb": [
+        1
+      ],
       "/Users/JonathanThom/Desktop/dogtography/config/initializers/session_store.rb": [
         null,
         null,
@@ -623,6 +626,14 @@
         null,
         1,
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        11,
+        null,
         null
       ],
       "/Users/JonathanThom/Desktop/dogtography/app/models/application_record.rb": [
@@ -760,6 +771,17 @@
         1,
         null
       ],
+      "/Users/JonathanThom/Desktop/dogtography/app/mailers/contact_mailer.rb": [
+        1,
+        1,
+        null,
+        1,
+        11,
+        11,
+        11,
+        null,
+        null
+      ],
       "/Users/JonathanThom/Desktop/dogtography/app/models/package.rb": [
         1,
         1,
@@ -847,6 +869,18 @@
         null,
         null
       ],
+      "/Users/JonathanThom/Desktop/dogtography/spec/mailers/contact_mailer_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
       "/Users/JonathanThom/Desktop/dogtography/spec/models/package_spec.rb": [
         1,
         null,
@@ -876,6 +910,6 @@
         null
       ]
     },
-    "timestamp": 1487360354
+    "timestamp": 1487368453
   }
 }

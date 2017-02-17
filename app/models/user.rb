@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :packages, through: :reviews
 
-  if Rails.env.development?
+  if Rails.env.development? or Rails.env.test?
     after_create :send_welcome_message
   end
 
