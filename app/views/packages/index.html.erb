@@ -1,6 +1,7 @@
 <h1>Friends are Forever</h1>
 <h3>Find the Right Package for You and Your Pet</h3>
 
-<%= @packages.each do |package| %>
-  <% image_tag package.image %>
+<% @packages.each do |package| %>
+  <%= image_tag package.image %>
+  <hr>
 <% end %>
