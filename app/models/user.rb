@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :packages, through: :reviews
+
+  after_create :send_welcome_message
+
+  def send_welcome_message
+    ContactMailer.welcome_email(self).deliver_now
+  end
 end
