@@ -28,7 +28,6 @@ class PackagesController < ApplicationController
 
   def edit
     @package = Package.find(params[:id])
-
   end
 
   def update

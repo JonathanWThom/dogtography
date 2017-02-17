@@ -1,9 +1,11 @@
-<%= @package.name %>
-<%= @package.description %>
-<%= @package.price %>
+<h1><%= @package.name %></h1>
+<p><%= @package.description %></p>
+<p>$<%= @package.price %></p>
 <%= image_tag @package.image(:medium) %>
 
 <% if current_user.admin %>
-  <%= link_to 'Edit This Package', edit_package_path(@package) %>
-  <%= link_to 'Delete This Package', package_path(@package),:data => {:confirm => "You sure?", :method => "delete"} %>
+  <hr>
+  <%= button_to 'Edit This Package', edit_package_path(@package), :class => 'btn btn-warning', :method => :get %>
+  <br>
+  <%= button_to 'Delete This Package', package_path(@package),:data => {:confirm => "You sure?", :method => "delete"}, :class => 'btn btn-danger' %>
 <% end %>
