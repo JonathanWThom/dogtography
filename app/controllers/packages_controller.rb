@@ -1,6 +1,5 @@
 class PackagesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
-  before_action except: [:index] do
+  before_action except: [:index, :show] do
     redirect_to new_user_session_path unless current_user && current_user.admin?
   end
 
@@ -23,8 +22,28 @@ class PackagesController < ApplicationController
     end
   end
 
+  def show
+    @package = Package.find(params[:id])
+  end
+
+  def edit
+    @package = Package.find(params[:id])
+    if @package.update(package_params)
+      redirect_to package_path(@package)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @package = Package.find(params[:id])
+    @package.destroy
+    redirect_to packages_path
+  end
+
 private
   def package_params
     params.require(:package).permit(:name, :description, :price, :image)
   end
+
 end

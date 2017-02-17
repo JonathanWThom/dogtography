@@ -1,0 +1,9 @@
+<%= @package.name %>
+<%= @package.description %>
+<%= @package.price %>
+<%= image_tag @package.image(:medium) %>
+
+<% if current_user.admin %>
+  <button><%= link_to 'Edit This Package', edit_package_path(@package) %></button>
+  <button><%= link_to 'Delete This Package', package_path(@package),:data => {:confirm => "You sure?", :method => "delete"} %></button>
+<% end %>

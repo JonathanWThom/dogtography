@@ -2,6 +2,7 @@
 <h3>Find the Right Package for You and Your Pet</h3>
 
 <% @packages.each do |package| %>
-  <%= image_tag package.image %>
+  <h5><%= link_to package.name, package_path(package) %></h5>
+  <%= image_tag package.image(:medium) %>
   <hr>
 <% end %>
