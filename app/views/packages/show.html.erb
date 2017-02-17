@@ -17,8 +17,8 @@
     <% @package.reviews.each do |review| %>
       <h5><%= review.user.email if review.user %></h5>
       <p><%= review.content %></p>
-      <% if review && current_user.admin %>
-        <%= link_to 'delete', "/packages/#{@package.id}/reviews/#{review.id}", :data => {:confirm => "Are you sure you'd like to delete this review?", :method => "delete"} %>
+      <% if current_user.admin && review.id %>
+        <p><%= link_to 'Delete Review', "/packages/#{@package.id}/reviews/#{review.id}", :data => {:confirm => "Are you sure you'd like to delete this review?", :method => "delete"} %><p>
       <% end %>
     <% end %>
     <h5>Leave a Review</h5>
