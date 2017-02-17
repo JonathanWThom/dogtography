@@ -28,7 +28,13 @@ class PackagesController < ApplicationController
 
   def edit
     @package = Package.find(params[:id])
+
+  end
+
+  def update
+    @package = Package.find(params[:id])
     if @package.update(package_params)
+      flash[:notice] = 'Photo package was successfully updated.'
       redirect_to package_path(@package)
     else
       render :edit
@@ -45,5 +51,4 @@ private
   def package_params
     params.require(:package).permit(:name, :description, :price, :image)
   end
-
 end
