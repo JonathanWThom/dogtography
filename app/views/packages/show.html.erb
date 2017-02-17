@@ -24,9 +24,8 @@
     <% end %>
     <% if current_user %>
       <h5>Leave a Review</h5>
-      <%= form_for [@package, @review] do |f| %>
-        <%= f.label :content  %>
-        <%= f.text_field :content %>
+      <%= bootstrap_form_for [@package, @review] do |f| %>
+        <%= f.text_area :content %>
         <%= f.submit %>
       <% end %>
     <% else %>

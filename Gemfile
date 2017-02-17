@@ -13,6 +13,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '~> 2.3'
+gem 'bootstrap_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
