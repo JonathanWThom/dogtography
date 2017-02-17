@@ -6,9 +6,24 @@
 }
 
 .padded-image {
-  padding: 10px;
+  margin-top: 20px;
 }
 
 .form-image {
   width: 100%;
+}
+
+body {
+  background-color: #eaf2ff;
+}
+
+.navbar {
+  background-color: #2377ff;
+  li a, .navbar-brand {
+    color: white;
+  }
+}
+
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar .navbar-header > a:focus, .navbar .navbar-header > a:hover {
+    background-color: #3fe01f;
 }
